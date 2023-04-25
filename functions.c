@@ -145,7 +145,7 @@ int print_int(va_list types, char buffer[], int flags, int width, int precision,
 
 	i++;
 
-	return (write_numbers(is_negative, i, buffer, flags, width, precision, size));
+	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
 
 /*PRINTS BINARY*/
@@ -182,7 +182,7 @@ int print_binary(va_list types, char buffer[], int flags, int width, int precisi
 		m /= 2;
 		a[i] = (n / m) % 2;
 	}
-	for (i = 0; sum = 0; count = 0; i < 32; i++)
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
 		sum += a[i];
 		if (sum || i == 31)
