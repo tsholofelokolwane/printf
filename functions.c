@@ -14,7 +14,8 @@
  * Return: Number of printed chars
  */
 
-int print_char(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_char(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
 
@@ -34,7 +35,8 @@ int print_char(va_list types, char buffer[], int flags, int width, int precision
  * Return: Number of printed chars
  */
 
-int print_string(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_string(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	int length = 0, i;
 	char *str = va_arg(types, char*);
@@ -69,7 +71,7 @@ int print_string(va_list types, char buffer[], int flags, int width, int precisi
 		else
 		{
 			for (i = width - length; i > 0; i--)
-			       write(1, " ", 1);
+				write(1, " ", 1);
 			write(1, &str[0], length);
 			return (width);
 		}
@@ -91,7 +93,8 @@ int print_string(va_list types, char buffer[], int flags, int width, int precisi
  * Return: Number of printed chars
  */
 
-int print_percent(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_percent(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	UNUSED(types);
 	UNUSED(buffer);
@@ -116,7 +119,8 @@ int print_percent(va_list types, char buffer[], int flags, int width, int precis
  * Return: Number of printed chars
  */
 
-int print_int(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_int(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	int is_negative = 0;
@@ -162,7 +166,8 @@ int print_int(va_list types, char buffer[], int flags, int width, int precision,
  * Return: Number of printed chars
  */
 
-int print_binary(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_binary(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
